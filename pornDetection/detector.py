@@ -42,8 +42,9 @@ class porn_detector:
         # 保存圖片
         #new_image.save("output.png")
 
+        # 基於操作系統打開圖像或視頻
         computer_platform = p.system()
-        if computer_platform == "Windows":
+        if computer_platform == "Windows": 
             os.system("start " , dataLocation)
         elif computer_platform == "Darwin":
             os.system("open " , dataLocation)
@@ -51,7 +52,7 @@ class porn_detector:
             os.system("./" , dataLocation)
         else:
             print("can't open image")
-            
+
         # 聲明 SightengineApi 檢測功能
         output = client.check("nudity","wad","offensive","faces","face-attributes", "celebrities").set_file(dataLocation)
         # 將輸出和結果打印為 <<json>> 格式
