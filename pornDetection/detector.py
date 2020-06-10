@@ -16,7 +16,7 @@ from PIL import Image
 import numpy as np
 import json
 import os
-os.system("pip install sightengine")
+os.system("pip3 install sightengine")
 from sightengine.client import SightengineClient
 
 # 色情照片和視頻探測器:
