@@ -3,7 +3,7 @@ import PIL
 from PIL import Image
 import numpy as np
 
-__dataLocation = input()
-__image = Image.open(__dataLocation)
-np__image = np.array(__image)
-print(np__image)
+dataLocation = input("Please input the data:  \n")
+image = Image.open(dataLocation)
+np__image = np.array(image)
+print(np__image) 
