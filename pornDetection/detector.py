@@ -19,18 +19,30 @@ import os
 os.system("pip install sightengine")
 from sightengine.client import SightengineClient
 
+# 色情照片和視頻探測器:
 class porn_detector:
     def main():
+        # 我使用的是 SightengineApi(“用戶api”，“秘密api”）:
         client = SightengineClient('1069852127', 'tLNDZxAArCRND5p8qt7A')
+        # 特別整數: 
         theSpecialInteger = 18
+        # 獲取用戶輸入:
         dataLocation = input("Please input the data:  \n")
+        # 打開用戶輸入數據
         __image = Image.open(dataLocation)
+        # 使用 Numpy 將圖像轉換為數組
         np__image = np.array(__image)
+        # 打印出數組的結果
         print("Converted Image to Array " , np__image)
+        # 得到十八和以前結果的差別
         np__image = np__image - theSpecialInteger
+        # 從數組創建新圖像
         new_image = Image.fromarray(np__image)
+        # 保存圖片
         #new_image.save("output.png")
+        # 聲明 SightengineApi 檢測功能
         output = client.check("nudity","wad","offensive","faces","face-attributes", "celebrities").set_file(dataLocation)
+        # 將輸出和結果打印為 <<json>> 格式
         print(json.dumps(output, indent=4, sort_keys=True))
 
     if __name__ == "__main__":
