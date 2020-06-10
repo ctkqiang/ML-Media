@@ -10,6 +10,20 @@
 # 有關特定語言的管理權限，請參閱許可證。
 # 許可中的限制。
 # @作者：John Melody Me
+import sys
+import subprocess
+import pkg_resources
+
+# 檢查 "pillow" 和 "sightengine"" 是否已經安裝:
+required_modules = {"pillow", "sightengine"}
+installed = {pkg.key for pkg in pkg_resources.working_set}
+missing = required_modules - installed
+
+if missing:
+    python = sys.executable
+    subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
+else:
+    print("Dependencies Already Installed", required_modules, "\n")
 
 import PIL
 from PIL import Image
@@ -17,7 +31,7 @@ import numpy as np
 import json
 import os
 import platform as p
-os.system("pip3 install sightengine")
+# os.system("pip3 install sightengine")
 from sightengine.client import SightengineClient
 
 # 色情照片和視頻探測器:
@@ -41,15 +55,20 @@ class porn_detector:
         new_image = Image.fromarray(np__image)
         # 保存圖片
         #new_image.save("output.png")
-
+        
         # 基於操作系統打開圖像或視頻
         computer_platform = p.system()
         if computer_platform == "Windows": 
             __image.show()
+            print("The Following Image is Explicit and inappropriate")
         elif computer_platform == "Darwin":
             __image.show()
+            os.system("say The Following Image is Explicit and inappropriate")
+            print("The Following Image is Explicit and inappropriate")
         elif computer_platform == "Linux":
             __image.show()
+            os.system("mplayer The Following Image is Explicit and inappropriate")
+            print("The Following Image is Explicit and inappropriate")
         else:
             print("can't open image")
 
