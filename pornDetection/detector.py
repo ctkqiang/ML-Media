@@ -16,6 +16,7 @@ from PIL import Image
 import numpy as np
 import json
 import os
+import platform as p
 os.system("pip3 install sightengine")
 from sightengine.client import SightengineClient
 
@@ -40,6 +41,17 @@ class porn_detector:
         new_image = Image.fromarray(np__image)
         # 保存圖片
         #new_image.save("output.png")
+
+        computer_platform = p.system()
+        if computer_platform == "Windows":
+            os.system("start " , dataLocation)
+        elif computer_platform == "Darwin":
+            os.system("open " , dataLocation)
+        elif computer_platform == "Linux":
+            os.system("./" , dataLocation)
+        else:
+            print("can't open image")
+            
         # 聲明 SightengineApi 檢測功能
         output = client.check("nudity","wad","offensive","faces","face-attributes", "celebrities").set_file(dataLocation)
         # 將輸出和結果打印為 <<json>> 格式
