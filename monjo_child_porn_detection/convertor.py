@@ -16,5 +16,5 @@ np__image = np__image - theSpecialInteger
 new_image = Image.fromarray(np__image)
 #new_image.save("output.png")
 
-output = client.check('nudity','wad','offensive','face-attributes').set_file(dataLocation)
+output = client.check("nudity","wad","offensive","face-attributes").set_file(dataLocation)
 print(json.dumps(output, indent=4, sort_keys=True))
