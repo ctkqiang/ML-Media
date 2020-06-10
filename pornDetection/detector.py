@@ -45,11 +45,11 @@ class porn_detector:
         # 基於操作系統打開圖像或視頻
         computer_platform = p.system()
         if computer_platform == "Windows": 
-            os.system("start " , dataLocation)
+            __image.show()
         elif computer_platform == "Darwin":
-            os.system("open " , dataLocation)
+            __image.show()
         elif computer_platform == "Linux":
-            os.system("./" , dataLocation)
+            __image.show()
         else:
             print("can't open image")
 
