@@ -10,6 +10,7 @@
 # 有關特定語言的管理權限，請參閱許可證。
 # 許可中的限制。
 # @作者：John Melody Me
+# http://www.scikit-video.org/stable/
 import sys
 import subprocess
 import pkg_resources
