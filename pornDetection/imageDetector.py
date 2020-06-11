@@ -10,6 +10,7 @@
 # 有關特定語言的管理權限，請參閱許可證。
 # 許可中的限制。
 # @作者：John Melody Me
+# https://github.com/johnmelodyme/Machine-Learning-Porn-detection
 import sys
 import subprocess
 import pkg_resources
@@ -55,7 +56,10 @@ class porn_image_detector:
         new_image = Image.fromarray(np__image)
         # 保存圖片
         #new_image.save("output.png")
-
+        # 聲明 SightengineApi 檢測功能
+        output = client.check("nudity","wad","offensive","faces","face-attributes", "celebrities").set_file(dataLocation)
+        # 將輸出和結果打印為 <<json>> 格式
+        print(json.dumps(output, indent = 4, sort_keys = True))
         # 基於操作系統打開圖像或視頻
         computer_platform = p.system()
         if computer_platform == "Windows": 
@@ -71,10 +75,6 @@ class porn_image_detector:
             print("The Following Image is Explicit and inappropriate")
         else:
             print("can't open image")
-
-        # 聲明 SightengineApi 檢測功能
-        output = client.check("nudity","wad","offensive","faces","face-attributes", "celebrities").set_file(dataLocation)
-        # 將輸出和結果打印為 <<json>> 格式
 
     if __name__ == "__main__":
         main()
