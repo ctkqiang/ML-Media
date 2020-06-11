@@ -15,7 +15,7 @@ import subprocess
 import pkg_resources
 
 # 檢查 "pillow" 和 "sightengine"" 是否已經安裝:
-required_modules = {"pillow", "sightengine"}
+required_modules = {"pillow", "sightengine", "requests"}
 installed = {pkg.key for pkg in pkg_resources.working_set}
 missing = required_modules - installed
 
@@ -35,7 +35,7 @@ import platform as p
 from sightengine.client import SightengineClient
 
 # 色情照片和視頻探測器:
-class porn_detector:
+class porn_image_detector:
     def main():
         # 我使用的是 SightengineApi(“用戶api”，“秘密api”）:
         client = SightengineClient('1069852127', 'tLNDZxAArCRND5p8qt7A')
@@ -55,7 +55,7 @@ class porn_detector:
         new_image = Image.fromarray(np__image)
         # 保存圖片
         #new_image.save("output.png")
-        
+
         # 基於操作系統打開圖像或視頻
         computer_platform = p.system()
         if computer_platform == "Windows": 
@@ -75,7 +75,7 @@ class porn_detector:
         # 聲明 SightengineApi 檢測功能
         output = client.check("nudity","wad","offensive","faces","face-attributes", "celebrities").set_file(dataLocation)
         # 將輸出和結果打印為 <<json>> 格式
-        print(json.dumps(output, indent=4, sort_keys=True))
 
     if __name__ == "__main__":
         main()
+        
