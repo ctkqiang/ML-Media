@@ -1,0 +1,1 @@
+from nudenet import NudeClassifier #pip3 install nudenet
