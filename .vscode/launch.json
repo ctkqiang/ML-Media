@@ -12,7 +12,7 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "Python: EX Current File",
+            "name": "Python: External Terminal -- Current File",
             "type": "python",
             "request": "launch",
             "program": "${file}",
