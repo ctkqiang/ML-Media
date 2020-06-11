@@ -10,13 +10,14 @@
 # 有關特定語言的管理權限，請參閱許可證。
 # 許可中的限制。
 # @作者：John Melody Me
+# https://github.com/johnmelodyme/nude.py
 
 import sys
 import subprocess
 import pkg_resources
 
 # 檢查 "pillow" 和 "sightengine"" 是否已經安裝:
-required_modules = {"nudity"}
+required_modules = {"nudepy"}
 installed = {pkg.key for pkg in pkg_resources.working_set}
 missing = required_modules - installed
 
@@ -26,8 +27,33 @@ if missing:
 else:
     print("Dependencies Already Installed", required_modules, "\n")
 
-from nudity import Nudity
+import nude
+from nude import Nude
 
-__data = input("Enter a Data for analysis:  \n")
-__nude = Nudity()
-print(nudity.has(__data))
+def main():
+    # 請插入媒體文件進行分析
+    __media_data = input("Please insert a media file for analysis: ")
+    __isNude = Nude(__media_data)
+    __isNude.parse()
+    __isNudeInspection = __isNude.inspect()
+    __isNudeResult = __isNude.result
+    if "Nude!!" in __isNudeInspection:
+        #print("result  ", __isNude.result, __isNude.inspect())
+        # 結果: 該圖片包含色情數據
+        output = """
+        { 
+            "nude" = "true";
+        }; 
+        """
+        print(output)
+    else:
+        # 結果: 該圖片不包含色情數據
+        output = """
+        { 
+            "nude" = "false";
+        }; """
+        print(output)
+    
+
+if __name__ == "__main__":
+    main()
