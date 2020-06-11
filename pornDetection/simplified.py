@@ -11,6 +11,9 @@
 # 許可中的限制。
 # @作者：John Melody Me
 # https://github.com/johnmelodyme/nude.py
+#
+# 目前僅適用於 Windows vista, 7 , 10
+# 支持應用程序將成為蘋果 Macosx
 
 import sys
 import subprocess
