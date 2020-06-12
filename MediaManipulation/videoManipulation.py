@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python 3.8.3
 # 版權2020©John Melody Me
 # 根據Apache許可版本2.0（“許可”）許可；
 # 除非遵守許可，否則不得使用此文件。
