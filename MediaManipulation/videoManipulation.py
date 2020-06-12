@@ -10,11 +10,30 @@
 # 有關特定語言的管理權限，請參閱許可證。
 # 許可中的限制。
 # @作者：John Melody Me
+# https://github.com/johnmelodyme/Machine-Learning-Porn-detection
+import sys
+import subprocess
+import pkg_resources
+
+# 檢查 "pillow" 和 "sightengine"" 是否已經安裝:
+required_modules = {"opencv-python", "ffpyplayer"}
+installed = {pkg.key for pkg in pkg_resources.working_set}
+missing = required_modules - installed
+
+if missing:
+    python = sys.executable
+    subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
+else:
+    print("Dependencies Already Installed", required_modules, "\n")
+
 import cv2
+import ffpyplayer
+from ffpyplayer.player import MediaPlayer
 
 def main():
     video = input("Input Video Directory ==> ")
     capture = cv2.VideoCapture(video)
+    player = MediaPlayer(video)
     cv2.namedWindow("", cv2.WINDOW_NORMAL)
     # frame = capture.read()
     if (capture.isOpened == False):
@@ -22,12 +41,15 @@ def main():
     else:
         while (capture.isOpened()):
             ret, frame = capture.read()
+            audio_frame, values = player.get_frame()
             if ret == True:
                 capture.set(3, 100)
                 capture.set(4, 100)
                 cv2.imshow("The Video", frame)
+                if (values != "eof" and audio_frame is not None):
+                    img, t = audio_frame
                 # cv2.resizeWindow("", 10, 10)
-                if cv2.waitKey(15) % 0xFF == ord("q"):
+                if cv2.waitKey(23) % 0xFF == ord("q"):
                     break
             else:
                 break
