@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Java (Launch) - ImageManipulation",
+            "request": "launch",
+            "mainClass": "MediaManipulation.ImageManipulation",
+            "projectName": "Detection_2903633f"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",

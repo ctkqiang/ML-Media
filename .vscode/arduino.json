@@ -1,0 +1,5 @@
+{
+    "programmer": "Arduino as ISP",
+    "port": "/dev/tty.usbserial-1410",
+    "board": "arduino:avr:uno"
+}

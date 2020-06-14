@@ -10,7 +10,7 @@
 # 有關特定語言的管理權限，請參閱許可證。
 # 許可中的限制。
 # @作者：John Melody Me
-# https://github.com/johnmelodyme/Machine-Learning-Porn-detection
+# @URL: https://github.com/johnmelodyme/Machine-Learning-Porn-detection
 import sys
 import subprocess
 import pkg_resources
@@ -78,4 +78,3 @@ class porn_image_detector:
 
     if __name__ == "__main__":
         main()
-        
