@@ -59,20 +59,18 @@ class porn_image_detector:
         # 聲明 SightengineApi 檢測功能
         output = client.check("nudity","wad","offensive","faces","face-attributes", "celebrities").set_file(dataLocation)
         # 將輸出和結果打印為 <<json>> 格式
-        print(json.dumps(output, indent = 4, sort_keys = True))
+        print(json.dumps(output, indent = 6, sort_keys = True))
         # 基於操作系統打開圖像或視頻
         computer_platform = p.system()
         if computer_platform == "Windows": 
             __image.show()
-            print("The Following Image is Explicit and inappropriate")
+            print("以下图像是明确的并且不合适的")
         elif computer_platform == "Darwin":
             __image.show()
-            os.system("say The Following Image is Explicit and inappropriate")
-            print("The Following Image is Explicit and inappropriate")
+            print("以下图像是明确的并且不合适的")
         elif computer_platform == "Linux":
             __image.show()
-            os.system("mplayer The Following Image is Explicit and inappropriate")
-            print("The Following Image is Explicit and inappropriate")
+            print("以下图像是明确的并且不合适的")
         else:
             print("can't open image")
 
